@@ -302,16 +302,6 @@ If you use this project, a link back to this repository is appreciated but not r
 
 ---
 
-## 📞 Support
-
-Need help or have questions?
-
-- 🐛 **Bug Reports**: [Open an issue](https://github.com/Hehehehekhikhikhi/clarity-ai/issues)
-- 💡 **Feature Requests**: [Start a discussion](https://github.com/Hehehehekhikhikhi/clarity-ai/discussions)
-- 📧 **Email**: hehehehekhekhekhe@gmail.com
-
----
-
 ## ⭐ Show Your Support
 
 If you find Clarity AI helpful:
