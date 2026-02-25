@@ -3,8 +3,6 @@
 
 > A premium AI-powered writing improvement tool that helps you write clearer, stronger, and more engaging content with complete transparency.
 
-![Clarity AI Banner](https://via.placeholder.com/1200x400/667eea/ffffff?text=Clarity+AI+-+Smart+Writing+Coach)
-
 ---
 
 ## 🌟 What is Clarity AI?
@@ -325,18 +323,6 @@ If you find Clarity AI helpful:
 
 ---
 
-## 📸 Screenshots
-
-### Main Interface
-![Main Interface](https://via.placeholder.com/800x500/667eea/ffffff?text=Main+Interface+Screenshot)
-
-### Analysis Results
-![Analysis Results](https://via.placeholder.com/800x500/667eea/ffffff?text=Results+Dashboard+Screenshot)
-
-### Writing Suggestions
-![Writing Suggestions](https://via.placeholder.com/800x500/667eea/ffffff?text=Suggestions+Panel+Screenshot)
-
----
 
 ## 🎯 Key Takeaways
 
