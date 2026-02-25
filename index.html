@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarity AI - Smart Writing Coach</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <svg class="sparkle-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/>
+                    <path d="M19 12l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z"/>
+                </svg>
+                <h1>Clarity AI</h1>
+            </div>
+            <p class="subtitle">Your Smart Writing Coach</p>
+            <p class="description">Make your writing clearer, stronger, and more engaging</p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Input Section -->
+            <div class="glass-card input-section">
+                <div class="section-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                    <h2>Your Text</h2>
+                </div>
+                
+                <textarea 
+                    id="inputText" 
+                    placeholder="Paste your writing here... (essays, emails, articles, posts)"
+                ></textarea>
+
+                <div class="controls">
+                    <div class="style-selector">
+                        <label for="writingStyle">Writing Style</label>
+                        <select id="writingStyle">
+                            <option value="casual">Casual</option>
+                            <option value="professional" selected>Professional</option>
+                            <option value="academic">Academic</option>
+                        </select>
+                    </div>
+
+                    <button id="analyzeBtn" class="analyze-btn">
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                        <span>Improve Writing</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Section (hidden initially) -->
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <!-- Metrics Dashboard -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Readability Score</div>
+                        <div id="readabilityScore" class="metric-value">0</div>
+                        <div id="scoreLabel" class="metric-sublabel">-</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-label">Word Count</div>
+                        <div id="wordCount" class="metric-value metric-blue">0</div>
+                        <div id="sentenceCount" class="metric-sublabel">0 sentences</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-label">Avg Words/Sentence</div>
+                        <div id="avgWords" class="metric-value metric-cyan">0</div>
+                        <div class="metric-sublabel">Target: 15-20</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-label">Complex Words</div>
+                        <div id="complexWords" class="metric-value metric-amber">0</div>
+                        <div class="metric-sublabel">7+ characters</div>
+                    </div>
+                </div>
+
+                <!-- Improved Text -->
+                <div class="glass-card">
+                    <div class="section-header">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="6"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
+                        <h2>Improved Version</h2>
+                        <button id="copyBtn" class="copy-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                            </svg>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                    
+                    <div id="improvedText" class="improved-text"></div>
+                </div>
+
+                <!-- Suggestions -->
+                <div id="suggestionsCard" class="glass-card" style="display: none;">
+                    <div class="section-header">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/>
+                        </svg>
+                        <h2>Writing Tips</h2>
+                    </div>
+                    
+                    <div id="suggestionsList" class="suggestions-list"></div>
+                </div>
+            </div>
+
+            <!-- Features (shown when no results) -->
+            <div id="featuresSection" class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-purple">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                    </div>
+                    <h3>Real-time Analysis</h3>
+                    <p>Get instant feedback on readability, clarity, and style</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-pink">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Learn & Improve</h3>
+                    <p>Understand why changes make your writing better</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-cyan">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="6"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
+                    </div>
+                    <h3>Style Control</h3>
+                    <p>Adapt your writing for different audiences and contexts</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Clarity AI - Honest AI-powered writing improvement</p>
+            <p>All suggestions explained. No hidden changes.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
